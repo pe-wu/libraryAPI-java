@@ -8,7 +8,6 @@ public class Client2 {
     private static Library lib;
     private static Scanner scanner;
 
-
     public static void main(String[] args) {
         lib = new Library();
 
@@ -20,7 +19,6 @@ public class Client2 {
             System.out.print(">");
             command = scanner.nextLine();
         }
-
     }
 
     private static void showWelcome() {
@@ -38,9 +36,12 @@ public class Client2 {
                 cShowHelp();
                 break;
 
-            case "b":
+            case "books":
                 cShowBooks();
                 break;
+//            case "borrow":
+//                cBorrow();
+//                break;
             case "r":
                 cAddRequest();
                 break;
@@ -57,6 +58,14 @@ public class Client2 {
                 System.out.println("unsupported operation!");
         }
     }
+
+//    private static void cBorrow() {
+//        System.out.print("User id: ");
+//        String user = scanner.nextLine();
+//        System.out.print("Book's ISBN: ");
+//        String isbn = scanner.nextLine();
+//        System.out.println(lib.borrow(isbn, user));
+//    }
 
     private static void cShowBooks() {
         System.out.println(lib.getBooks());

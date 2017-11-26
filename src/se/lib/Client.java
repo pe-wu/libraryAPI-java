@@ -6,7 +6,6 @@ public class Client {
     private static Library lib;
     private static Scanner scanner;
 
-
     public static void main(String[] args) {
         lib = new Library();
 
