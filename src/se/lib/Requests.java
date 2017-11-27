@@ -6,21 +6,15 @@ class Requests {
     private ArrayList<Request> requestsList = new ArrayList<>();
 
     BookDetails addRequest(BookDetails requestDetails)  {
-        Request oldRequest = getRequestByName(requestDetails.getTitle());
-
-        if (oldRequest != null) {
-            oldRequest.increaseRequestsIndex();
-            if (oldRequest.timeToBuyBook()) {
-                BookDetails bookToBuy = oldRequest.getBookDetails().copy(); //clone() not implemented intentionally;
-                requestsList.remove(oldRequest);
-                return bookToBuy;
-            }
-            return null;
+        Request request = getRequestByName(requestDetails.getTitle());
+        if (request == null) {
+            requestsList.add(new Request(requestDetails, false));
+            request = requestsList.get(requestsList.size()-1);
         }
 
-        //no previous request
-        requestsList.add(new Request(requestDetails, false));
-        return null;
+        BookDetails requestsFulfilled = request.nextRequest();
+        if (requestsFulfilled != null) requestsList.remove(request);
+        return requestsFulfilled;
     }
 
     void addLibraryRequest(BookDetails libRequestDetails) {

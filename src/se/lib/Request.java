@@ -23,10 +23,18 @@ class Request {
         requestsIndex++;
     }
 
-    boolean timeToBuyBook() {
+    private boolean timeToBuyBook() {
         return everBought && requestsIndex == Library.RENEWAL_REQUESTS ||
                 requestsIndex == Library.NORMAL_REQUESTS;
     }
 
+    BookDetails nextRequest() {
+        requestsIndex++;
+        if (timeToBuyBook()) {
+            return bookDetails.copy(); //clone() not implemented intentionally;
+        }
+        return null;
+
+    }
 }
 

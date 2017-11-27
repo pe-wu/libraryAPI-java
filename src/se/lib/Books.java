@@ -7,8 +7,8 @@ class Books {
 
     BookDetails returnBook(String bookname) {
         Book book = getBookByName(bookname);
-
         BookDetails bookWeared = book.returning();
+
         if (bookWeared != null) bookList.remove(book);
         return bookWeared;
     }
