@@ -14,9 +14,9 @@ public class Library {
         users.add(username);
     }
 
-    public void addUserRequest(String isbn, String author, String title) {
+    public void newRequest(String isbn, String author, String title) {
         BookDetails userRequestDetails = new BookDetails(isbn, author, title);
-        BookDetails bookToBuy = requests.addRequest(userRequestDetails);
+        BookDetails bookToBuy = requests.addUserRequest(userRequestDetails);
 
         if (bookToBuy != null) books.buyBook(bookToBuy);
     }

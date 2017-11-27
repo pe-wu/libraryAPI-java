@@ -5,7 +5,7 @@ import java.util.ArrayList;
 class Requests {
     private ArrayList<Request> requestsList = new ArrayList<>();
 
-    BookDetails addRequest(BookDetails requestDetails)  {
+    BookDetails addUserRequest(BookDetails requestDetails)  {
         Request request = getRequestByName(requestDetails.getTitle());
         if (request == null) {
             requestsList.add(new Request(requestDetails, false));
@@ -20,7 +20,6 @@ class Requests {
     void addLibraryRequest(BookDetails libRequestDetails) {
         requestsList.add(new Request(libRequestDetails, true));
     }
-
 
     Request getRequestByName(String bookname) {
         for (Request request : requestsList) {

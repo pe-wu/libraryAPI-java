@@ -90,7 +90,7 @@ public class Client2 {
         System.out.print("Title: ");
         String title = scanner.nextLine();
 
-        lib.addUserRequest(isbn, author, title);
+        lib.newRequest(isbn, author, title);
     }
 
     private static void cAddUser() {
@@ -118,7 +118,7 @@ public class Client2 {
         String title = scanner.nextLine();
 
         for (int i = 0; i < howManyBooks; i++) {
-            lib.addUserRequest(isbn+i, author, title);
+            lib.newRequest(isbn+i, author, title);
         }
 
         System.out.println(howManyBooks + " requests executed!");
