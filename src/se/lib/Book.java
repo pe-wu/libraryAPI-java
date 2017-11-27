@@ -1,24 +1,38 @@
 package se.lib;
- class Book {
-    private BookDetails details;
+
+class Book {
+    private BookDetails bookDetails;
     private int borrowsIndex;
-    private User currentBorrower;
+    private User currentUser;
 
     Book(BookDetails bookDetails) {
-        this.details = bookDetails;
+        this.bookDetails = bookDetails;
         this.borrowsIndex = 0;
     }
 
-    private int getBorrowsIndex() {
+    BookDetails getBookDetails() {
+        return bookDetails;
+    }
+
+    int getBorrowsIndex() {
         return borrowsIndex;
     }
 
-    private User getCurrentBorrower() {
-        return currentBorrower;
+    User getCurrentUser() {
+        return currentUser;
     }
-    
-    @Override
-    public String toString() {
-       	return details.toString();
+
+    void borrow(User user) {
+        if (user.borrowPossible()) {
+            this.currentUser = user;
+            this.borrowsIndex++;
+            user.addBorrowedBook(this);
+        } else {
+            //TODO throw BorrowNotPossibleException
+        }
+    }
+
+    void removeUser() {
+        this.currentUser = null;
     }
 }

@@ -1,6 +1,6 @@
 package se.lib;
 
-public class BookDetails {
+class BookDetails {
 	private String isbn;
 	private String author;
     private String title;
@@ -10,15 +10,18 @@ public class BookDetails {
 		this.author = author;
 		this.title = title;
 	}
-	
-	@Override
+
+    String getTitle() {
+        return title;
+    }
+
+    BookDetails copy() {
+	    return new BookDetails(this.isbn, this.author, this.title); //clone() not implemented
+    }
+
+    @Override
 	public String toString() {
-		return isbn + ", " +
-				author + ", " +
-				title;
+		return isbn + ", " + author + ", " + title;
 	}
 
-    String getIsbn() {
-        return isbn;
-    }
 }

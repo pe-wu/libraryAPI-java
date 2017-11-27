@@ -3,22 +3,41 @@ package se.lib;
 import java.util.ArrayList;
 
 class Books {
-    private ArrayList<Book> books = new ArrayList<>();
+    private ArrayList<Book> bookList = new ArrayList<>();
 
-    String getBooks() {
-        if (books.size() != 0) {
-            StringBuilder booksInLibrary = new StringBuilder();
-            for (Book b : books) {
-                booksInLibrary.append(b.toString()).append("\n");
-                return booksInLibrary.toString();
-            }
+    BookDetails returnBook(String bookname) {
+        Book book = getBookByName(bookname);
+        book.getCurrentUser().removeBorrowedBook(book);
+        book.removeUser();
+        if (book.getBorrowsIndex() < Library.BOOK_WEAR) return null;
+        else {
+            BookDetails bookToRequest = book.getBookDetails().copy(); //clone() not implemented intentionally;
+            bookList.remove(book);
+            return bookToRequest;
         }
-        return "No books in the library!";
     }
 
-    String buyBook(BookDetails bookDetails) {
-        books.add(new Book(bookDetails));
-        return "Book " + bookDetails + " added to library";
+    String getBookList() {
+        StringBuilder booksInLibrary = new StringBuilder("");
+            for (Book b : bookList) {
+                booksInLibrary.append(b.getBookDetails().toString());
+                booksInLibrary.append("\n");
+            }
+        return booksInLibrary.toString();
+    }
+
+    void buyBook(BookDetails bookDetails) {
+        bookList.add(new Book(bookDetails));
+    }
+
+    Book getBookByName(String bookname) {
+        for (Book book : bookList) {
+            if (book.getBookDetails().getTitle().equals(bookname)) {
+                return book;
+            }
+        }
+        return null;
+        //TODO BookNotFoundException
     }
 
 }

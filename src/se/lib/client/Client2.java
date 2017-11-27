@@ -68,7 +68,7 @@ public class Client2 {
 //    }
 
     private static void cShowBooks() {
-        System.out.println(lib.getBooks());
+        lib.getBooks();
     }
 
     private static void cShowHelp() {
@@ -90,19 +90,19 @@ public class Client2 {
         System.out.print("Title: ");
         String title = scanner.nextLine();
 
-        System.out.println(lib.addRequest(isbn, author, title));
+        lib.addUserRequest(isbn, author, title);
     }
 
     private static void cAddUser() {
         System.out.print("Username: ");
         String username = scanner.nextLine();
-        System.out.println(lib.addUser(username));
+        lib.addUser(username);
     }
     private static void cAddUsers() {
-        System.out.println(lib.addUser("Adina"));
-        System.out.println(lib.addUser("Alexey"));
-        System.out.println(lib.addUser("Narek"));
-        System.out.println(lib.addUser("Piotrek"));
+        lib.addUser("Adina");
+        lib.addUser("Alexey");
+        lib.addUser("Narek");
+        lib.addUser("Piotrek");
     }
 
     private static void cAddRequests() {
@@ -117,7 +117,7 @@ public class Client2 {
         String title = scanner.nextLine();
 
         for (int i = 0; i < howManyBooks; i++) {
-            System.out.println(lib.addRequest(isbn+i, author, title));
+            lib.addUserRequest(isbn+i, author, title);
         }
 
         System.out.println(howManyBooks + " requests executed!");
