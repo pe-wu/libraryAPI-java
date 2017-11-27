@@ -13,6 +13,7 @@ class Requests {
             requestsList.add(new Request(requestDetails, false));
             request = requestsList.get(requestsList.size()-1);
         }
+
         BookDetails requestsFulfilled = request.nextRequest();
         if (requestsFulfilled != null) requestsList.remove(request);
         return requestsFulfilled;

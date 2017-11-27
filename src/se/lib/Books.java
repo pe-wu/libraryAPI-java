@@ -7,11 +7,7 @@ class Books {
 
     BookDetails returnBook(Book book) throws BookNotFoundException {
         BookDetails bookWeared = book.returning();
-
-        if (bookWeared != null) {
-            bookList.remove(book);
-        }
-
+        if (bookWeared != null) bookList.remove(book);
         return bookWeared;
     }
 
