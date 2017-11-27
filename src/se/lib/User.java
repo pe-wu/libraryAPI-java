@@ -1,7 +1,5 @@
 package se.lib;
 
-import java.util.ArrayList;
-
 class User {
     private String name;
     private int borrowedBooksIndex = 0;
