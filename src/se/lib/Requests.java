@@ -10,11 +10,12 @@ class Requests {
 
         if (oldRequest != null) {
             oldRequest.increaseRequestsIndex();
-            if (!oldRequest.timeToBuyBook()) return null;
-            else {
+            if (oldRequest.timeToBuyBook()) {
                 BookDetails bookToBuy = oldRequest.getBookDetails().copy(); //clone() not implemented intentionally;
                 requestsList.remove(oldRequest);
+                return bookToBuy;
             }
+            return null;
         }
 
         //no previous request

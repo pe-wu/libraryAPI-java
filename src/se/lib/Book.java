@@ -22,17 +22,23 @@ class Book {
         return currentUser;
     }
 
-    void borrow(User user) {
+    void borrowing(User user) {
         if (user.borrowPossible()) {
-            this.currentUser = user;
-            this.borrowsIndex++;
-            user.addBorrowedBook(this);
-        } else {
-            //TODO throw BorrowNotPossibleException
+            if (currentUser == null) {
+                this.currentUser = user;
+                this.borrowsIndex++;
+                user.addBorrowedBook(this);
+            }
+            //TODO throw BookAlreadyBorrowedException
         }
+        //TODO throw BorrowNotPossibleException
+
     }
 
-    void removeUser() {
-        this.currentUser = null;
+    BookDetails returning() {
+        currentUser.removeBorrowedBook(this);
+        currentUser = null;
+        if (borrowsIndex < Library.BOOK_WEAR) return null;
+        else return bookDetails.copy();
     }
 }

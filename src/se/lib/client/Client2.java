@@ -68,7 +68,7 @@ public class Client2 {
     }
 
     private static void cShowBooks() {
-        lib.getBooks();
+        System.out.println(lib.getBooks());
     }
 
     private static void cShowHelp() {
@@ -98,6 +98,7 @@ public class Client2 {
         String username = scanner.nextLine();
         lib.addUser(username);
     }
+
     private static void cAddUsers() {
         lib.addUser("Adina");
         lib.addUser("Alexey");

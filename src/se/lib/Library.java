@@ -24,7 +24,7 @@ public class Library {
     public void borrowBook(String username, String bookname) {
         User user = users.getUserByName(username);
         Book book = books.getBookByName(bookname);
-        book.borrow(user);
+        book.borrowing(user);
     }
 
     public void returnBook(String bookname) {

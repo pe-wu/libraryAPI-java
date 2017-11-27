@@ -7,14 +7,10 @@ class Books {
 
     BookDetails returnBook(String bookname) {
         Book book = getBookByName(bookname);
-        book.getCurrentUser().removeBorrowedBook(book);
-        book.removeUser();
-        if (book.getBorrowsIndex() < Library.BOOK_WEAR) return null;
-        else {
-            BookDetails bookToRequest = book.getBookDetails().copy(); //clone() not implemented intentionally;
-            bookList.remove(book);
-            return bookToRequest;
-        }
+
+        BookDetails bookWeared = book.returning();
+        if (bookWeared != null) bookList.remove(book);
+        return bookWeared;
     }
 
     String getBookList() {
