@@ -64,7 +64,7 @@ public class Client2 {
         String user = scanner.nextLine();
         System.out.print("Book's title: ");
         String title = scanner.nextLine();
-        lib.borrowBook(user, title);
+        lib.bookBorrow(user, title);
     }
 
     private static void cShowBooks() {

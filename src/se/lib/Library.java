@@ -21,13 +21,13 @@ public class Library {
         if (bookToBuy != null) books.buyBook(bookToBuy);
     }
 
-    public void borrowBook(String username, String bookname) {
+    public void bookBorrow(String username, String bookname) {
         User user = users.getUserByName(username);
         Book book = books.getBookByName(bookname);
         book.borrowing(user);
     }
 
-    public void returnBook(String bookname) {
+    public void bookReturn(String bookname) {
         BookDetails libRequestDetails = books.returnBook(bookname);
 
         if (libRequestDetails != null) requests.addLibraryRequest(libRequestDetails);
