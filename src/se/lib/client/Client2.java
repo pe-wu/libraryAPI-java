@@ -39,9 +39,9 @@ public class Client2 {
             case "books":
                 cShowBooks();
                 break;
-//            case "borrow":
-//                cBorrow();
-//                break;
+            case "borrow":
+                cBorrow();
+                break;
             case "r":
                 cAddRequest();
                 break;
@@ -59,13 +59,13 @@ public class Client2 {
         }
     }
 
-//    private static void cBorrow() {
-//        System.out.print("User id: ");
-//        String user = scanner.nextLine();
-//        System.out.print("Book's ISBN: ");
-//        String isbn = scanner.nextLine();
-//        System.out.println(lib.borrow(isbn, user));
-//    }
+    private static void cBorrow() {
+        System.out.print("User id: ");
+        String user = scanner.nextLine();
+        System.out.print("Book's title: ");
+        String title = scanner.nextLine();
+        lib.borrowBook(user, title);
+    }
 
     private static void cShowBooks() {
         lib.getBooks();
