@@ -35,6 +35,7 @@ class Book {
 
     }
 
+    //function named returning instead of return, because return is a keyword
     BookDetails returning() {
         currentUser.removeBorrowedBook(this);
         currentUser = null;
