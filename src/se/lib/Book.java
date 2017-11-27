@@ -22,22 +22,22 @@ class Book {
         return currentUser;
     }
 
-    void borrowing(User user) {
+    void borrowing(User user) throws BookAlreadyBorrowedException, TooManyBorrowsException {
         if (user.borrowPossible()) {
             if (currentUser == null) {
                 this.currentUser = user;
                 this.borrowsIndex++;
-                user.addBorrowedBook(this);
+                user.addBorrowedBook();
             }
-            //TODO throw BookAlreadyBorrowedException
+            throw new BookAlreadyBorrowedException(getBookDetails().getTitle());
         }
-        //TODO throw BorrowNotPossibleException
+        throw new TooManyBorrowsException(user.getName());
 
     }
 
     //function named returning instead of return, because return is a keyword
     BookDetails returning() {
-        currentUser.removeBorrowedBook(this);
+        currentUser.removeBorrowedBook();
         currentUser = null;
         if (borrowsIndex < Library.BOOK_WEAR) return null;
         else return bookDetails.copy();

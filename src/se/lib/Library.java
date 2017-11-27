@@ -21,15 +21,15 @@ public class Library {
         if (bookToBuy != null) books.buyBook(bookToBuy);
     }
 
-    public void bookBorrow(String username, String bookname) {
+    public void bookBorrow(String username, String bookname) throws UserNotFoundException, BookNotFoundException, BookAlreadyBorrowedException, TooManyBorrowsException {
         User user = users.getUserByName(username);
         Book book = books.getBookByName(bookname);
         book.borrowing(user);
     }
 
-    public void bookReturn(String bookname) {
-        BookDetails libRequestDetails = books.returnBook(bookname);
-
+    public void bookReturn(String bookname) throws BookNotFoundException {
+        Book book = books.getBookByName(bookname);
+        BookDetails libRequestDetails = books.returnBook(book);
         if (libRequestDetails != null) requests.addLibraryRequest(libRequestDetails);
     }
 
@@ -37,15 +37,15 @@ public class Library {
         return books.getBookList();
     }
 
-    public String getBookCurrentUser(String bookname) {
+    public String getBookCurrentUser(String bookname) throws BookNotFoundException {
         return books.getBookByName(bookname).getCurrentUser().getName();
     }
 
-    public int getBookBorrowsIndex(String bookname) {
+    public int getBookBorrowsIndex(String bookname) throws BookNotFoundException {
         return books.getBookByName(bookname).getBorrowsIndex();
     }
 
-    public int getRequestCurrentIndex(String bookname) {
+    public int getRequestCurrentIndex(String bookname) throws RequestNotFoundException {
         return requests.getRequestByName(bookname).getRequestsIndex();
     }
 

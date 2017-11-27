@@ -5,11 +5,13 @@ import java.util.ArrayList;
 class Books {
     private ArrayList<Book> bookList = new ArrayList<>();
 
-    BookDetails returnBook(String bookname) {
-        Book book = getBookByName(bookname);
+    BookDetails returnBook(Book book) throws BookNotFoundException {
         BookDetails bookWeared = book.returning();
 
-        if (bookWeared != null) bookList.remove(book);
+        if (bookWeared != null) {
+            bookList.remove(book);
+        }
+
         return bookWeared;
     }
 
@@ -26,14 +28,13 @@ class Books {
         bookList.add(new Book(bookDetails));
     }
 
-    Book getBookByName(String bookname) {
+    Book getBookByName(String bookname) throws BookNotFoundException {
         for (Book book : bookList) {
             if (book.getBookDetails().getTitle().equals(bookname)) {
                 return book;
             }
         }
-        return null;
-        //TODO BookNotFoundException
+        throw new BookNotFoundException(bookname);
     }
 
 }

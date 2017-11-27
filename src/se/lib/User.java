@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 class User {
     private String name;
-    private ArrayList<Book> borrowedBooks = new ArrayList<>();
+    private int borrowedBooksIndex = 0;
 
     User(String name) {
         this.name = name;
@@ -14,16 +14,16 @@ class User {
         return name;
     }
 
-    void addBorrowedBook(Book book) {
-        borrowedBooks.add(book);
+    void addBorrowedBook() {
+        borrowedBooksIndex++;
     }
 
-    void removeBorrowedBook(Book book) {
-        borrowedBooks.remove(book);
+    void removeBorrowedBook() {
+        borrowedBooksIndex--;
     }
 
     boolean borrowPossible() {
-        return borrowedBooks.size() < Library.BORROWS_PER_USER;
+        return borrowedBooksIndex < Library.BORROWS_PER_USER;
     }
 
 }

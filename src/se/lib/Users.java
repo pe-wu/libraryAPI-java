@@ -9,11 +9,10 @@ class Users {
         usersList.add(new User(username));
     }
 
-    User getUserByName(String username) {
+    User getUserByName(String username) throws UserNotFoundException {
         for (User user : usersList) {
             if (user.getName().equals(username)) return user;
         }
-        return null;
-        //TODO UserNotFoundException(username);
+        throw new UserNotFoundException(username);
     }
 }
