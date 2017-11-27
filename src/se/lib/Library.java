@@ -16,8 +16,8 @@ public class Library {
 
     public void newRequest(String isbn, String author, String title) {
         BookDetails userRequestDetails = new BookDetails(isbn, author, title);
-        BookDetails bookToBuy = requests.addUserRequest(userRequestDetails);
 
+        BookDetails bookToBuy = requests.addUserRequest(userRequestDetails);
         if (bookToBuy != null) books.buyBook(bookToBuy);
     }
 
@@ -29,6 +29,7 @@ public class Library {
 
     public void bookReturn(String bookname) throws BookNotFoundException {
         Book book = books.getBookByName(bookname);
+
         BookDetails libRequestDetails = books.returnBook(book);
         if (libRequestDetails != null) requests.addLibraryRequest(libRequestDetails);
     }
