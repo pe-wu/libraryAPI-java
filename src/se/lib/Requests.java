@@ -14,7 +14,7 @@ class Requests {
             request = requestsList.get(requestsList.size()-1);
         }
 
-        request.increaseCounter;
+        request.increaseCounter();
         BookDetails requestsFulfilled = request.timeToBuyBook();
         if (requestsFulfilled != null) requestsList.remove(request);
         return requestsFulfilled;
