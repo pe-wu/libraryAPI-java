@@ -68,12 +68,12 @@ public class Library {
      *
      * @param username of the borrower.
      * @param title    of the book the borrower would like to borrow.
-     * @throws UserNotFoundException        if there is no user of a given name in Library.
-     * @throws BookNotFoundException        if there is no book of a given title in Library.
      * @throws BookAlreadyBorrowedException if the book is already borrowed by other user.
+     * @throws BookNotFoundException        if there is no book of a given title in Library.
      * @throws TooManyBorrowsException      if the user has already reached borrows limit.
+     * @throws UserNotFoundException        if there is no user of a given name in Library.
      */
-    public void bookBorrow(String username, String title) throws UserNotFoundException, BookNotFoundException, BookAlreadyBorrowedException, TooManyBorrowsException {
+    public void bookBorrow(String username, String title) throws BookAlreadyBorrowedException, BookNotFoundException, TooManyBorrowsException, UserNotFoundException {
         User user = users.getUserByName(username);
         Book book = books.getBookByTitle(title);
         book.borrowing(user);
@@ -131,7 +131,6 @@ public class Library {
      * @return requests number.
      * @throws RequestNotFoundException if there is no request of a given title in Library.
      */
-    //TODO maybe we should return 0 when there is no request instead of an exception?
     public int getRequestCurrentIndex(String title) throws RequestNotFoundException {
         return requests.getRequestByName(title).getRequestsIndex();
     }
