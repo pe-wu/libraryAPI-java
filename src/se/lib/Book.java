@@ -18,11 +18,11 @@ class Book {
         return borrowsIndex;
     }
 
-    User getCurrentUser() throws CurrentUserNotFoundException {
+    User getCurrentUser() throws UserNotFoundException {
         if (currentUser != null) {
             return currentUser;
         }
-        throw new CurrentUserNotFoundException(bookDetails.getTitle());
+        throw new UserNotFoundException(bookDetails.getTitle());
     }
 
     // benenne in borrowByUser um
@@ -44,7 +44,9 @@ class Book {
     BookDetails returning() {
         currentUser.removeBorrowedBook();
         currentUser = null;
-        if (borrowsIndex < Library.BOOK_WEAR) return null;
-        else return bookDetails.copy();
+        if (borrowsIndex == Library.BOOK_WEAR) {
+            return bookDetails.copy();
+        }
+        return null;
     }
 }

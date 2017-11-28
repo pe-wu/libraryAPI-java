@@ -15,7 +15,9 @@ class Requests {
         }
 
         BookDetails requestsFulfilled = request.nextRequest();
-        if (requestsFulfilled != null) requestsList.remove(request);
+        if (requestsFulfilled != null) {
+            requestsList.remove(request);
+        }
         return requestsFulfilled;
     }
 
@@ -25,7 +27,9 @@ class Requests {
 
     Request getRequestByTitle(String bookname) throws RequestNotFoundException {
         for (Request request : requestsList) {
-            if (request.getBookDetails().getTitle().equals(bookname)) return request;
+            if (request.getBookDetails().getTitle().equals(bookname)) {
+                return request;
+            }
         }
         throw new RequestNotFoundException(bookname);
     }
