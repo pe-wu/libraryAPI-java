@@ -19,9 +19,8 @@ class Request {
         return requestsCounter;
     }
 
-    //One function does one thing! Ich würde es in zwei Funktionen teilen
-    //die erste würde ich als increaseDemand umbenennen
-    BookDetails nextRequest() {
+    
+    BookDetails increaseCounter() {
         requestsCounter++;
         if (timeToBuyBook()) {
             return bookDetails.copy(); //clone() not implemented intentionally;
