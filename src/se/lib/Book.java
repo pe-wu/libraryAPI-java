@@ -2,20 +2,20 @@ package se.lib;
 
 class Book {
     private BookDetails bookDetails;
-    private int borrowsIndex;
+    private int borrowCounter;
     private User currentUser;
 
     Book(BookDetails bookDetails) {
         this.bookDetails = bookDetails;
-        this.borrowsIndex = 0;
+        this.borrowCounter = 0;
     }
 
     BookDetails getBookDetails() {
         return bookDetails;
     }
 
-    int getBorrowsIndex() {
-        return borrowsIndex;
+    int getTimesBorrowed() {
+        return borrowCounter;
     }
 
     User getCurrentUser() throws CurrentUserNotFoundException {
