@@ -14,7 +14,7 @@ class Requests {
             request = requestsList.get(requestsList.size()-1);
         }
 
-        BookDetails requestsFulfilled = request.nextRequest();
+        BookDetails requestsFulfilled = request.increaseCounter;
         if (requestsFulfilled != null) requestsList.remove(request);
         return requestsFulfilled;
     }
