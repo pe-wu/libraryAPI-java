@@ -20,17 +20,18 @@ class Request {
     }
 
     
-    BookDetails increaseCounter() {
-        requestsCounter++;
-        if (timeToBuyBook()) {
+    void increaseCounter() {
+        if(Integer.MAX_VALUE > requestsCounter + 1){
+            requestsCounter++;
+        }
+    }
+
+    BookDetails timeToBuyBook() {
+        if (everBought && requestsCounter == Library.RENEWAL_REQUESTS ||
+                requestsCounter == Library.DEFAULT_REQUESTS) {
             return bookDetails.copy(); //clone() not implemented intentionally;
         }
         return null;
-    }
-
-    private boolean timeToBuyBook() {
-        return everBought && requestsCounter == Library.RENEWAL_REQUESTS ||
-                requestsCounter == Library.DEFAULT_REQUESTS;
     }
 }
 
