@@ -11,7 +11,7 @@ class Books {
         return bookWeared;
     }
 
-    String toString() {
+    String booksListString() {
         StringBuilder booksInLibrary = new StringBuilder("");
             for (Book b : bookList) {
                 booksInLibrary.append(b.getBookDetails().toString());
