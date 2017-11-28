@@ -124,7 +124,7 @@ public class Library {
      * @throws BookNotFoundException if there is no book of a given title in Library.
      */
     public int getBookBorrowsIndex(String title) throws BookNotFoundException {
-        return books.getBookByTitle(title).getBorrowsIndex();
+        return books.getBookByTitle(title).getBorrowCounter();
     }
 
     /**
