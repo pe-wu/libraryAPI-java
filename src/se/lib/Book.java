@@ -30,7 +30,7 @@ class Book {
         if (user.borrowPossible()) {
             if (currentUser == null) {
                 this.currentUser = user;
-                this.borrowsIndex++;
+                this.borrowCounter++;
                 user.addBorrowedBook();
             }
             throw new BookAlreadyBorrowedException(getBookDetails().getTitle());
@@ -44,7 +44,7 @@ class Book {
     BookDetails returning() {
         currentUser.removeBorrowedBook();
         currentUser = null;
-        if (borrowsIndex < Library.BOOK_WEAR) return null;
+        if (this.borrowCounter < Library.BOOK_WEAR) return null;
         else return bookDetails.copy();
     }
 }
