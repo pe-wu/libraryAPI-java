@@ -21,7 +21,7 @@ class Request {
 
     
     void increaseCounter() {
-        if(Integer.MAX_VALUE > requestsCounter + 1){
+        if(Integer.MAX_VALUE > requestsCounter){
             requestsCounter++;
         }
     }
