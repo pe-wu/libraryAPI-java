@@ -18,9 +18,11 @@ class Book {
         return borrowsIndex;
     }
 
-    User getCurrentUser() throws UserNotFoundException {
-        if (currentUser != null) return currentUser;
-        throw new UserNotFoundException(bookDetails.getTitle());
+    User getCurrentUser() throws CurrentUserNotFoundException {
+        if (currentUser != null) {
+            return currentUser;
+        }
+        throw new CurrentUserNotFoundException(bookDetails.getTitle());
     }
 
     void borrowing(User user) throws BookAlreadyBorrowedException, TooManyBorrowsException {
