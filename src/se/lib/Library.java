@@ -98,7 +98,7 @@ public class Library {
      * @return contains books available to borrow or currently borrowed by library's users.
      */
     public String getBooks() {
-        return books.getBookList();
+        return books.toString();
     }
 
     /**
