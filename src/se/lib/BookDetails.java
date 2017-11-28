@@ -16,7 +16,7 @@ class BookDetails {
     }
 
     BookDetails copy() {
-        return new BookDetails(this.isbn, this.author, this.title); //clone() not implemented
+        return new BookDetails(this.isbn, this.author, this.title); //clone() not implemented intentionally
     }
 
     @Override

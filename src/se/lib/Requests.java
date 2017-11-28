@@ -8,7 +8,7 @@ class Requests {
     BookDetails addUserRequest(BookDetails requestDetails)  {
         Request request;
         try {
-            request = getRequestByName(requestDetails.getTitle());
+            request = getRequestByTitle(requestDetails.getTitle());
         } catch (RequestNotFoundException e) {
             requestsList.add(new Request(requestDetails, false));
             request = requestsList.get(requestsList.size()-1);
@@ -23,7 +23,7 @@ class Requests {
         requestsList.add(new Request(libRequestDetails, true));
     }
 
-    Request getRequestByName(String bookname) throws RequestNotFoundException {
+    Request getRequestByTitle(String bookname) throws RequestNotFoundException {
         for (Request request : requestsList) {
             if (request.getBookDetails().getTitle().equals(bookname)) return request;
         }

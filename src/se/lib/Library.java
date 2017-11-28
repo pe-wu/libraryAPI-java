@@ -106,10 +106,10 @@ public class Library {
      *
      * @param title of the book being borrowed.
      * @return name of a user.
-     * @throws BookNotFoundException        if there is no book of a given title in Library.
-     * @throws CurrentUserNotFoundException if no user is currently borrowing the book.
+     * @throws BookNotFoundException if there is no book of a given title in Library.
+     * @throws UserNotFoundException if no user is currently borrowing the book.
      */
-    public String getBookCurrentUser(String title) throws BookNotFoundException, CurrentUserNotFoundException {
+    public String getBookCurrentUser(String title) throws BookNotFoundException, UserNotFoundException {
         return books.getBookByTitle(title).getCurrentUser().getName();
     }
 
@@ -132,7 +132,7 @@ public class Library {
      * @throws RequestNotFoundException if there is no request of a given title in Library.
      */
     public int getRequestCurrentIndex(String title) throws RequestNotFoundException {
-        return requests.getRequestByName(title).getRequestsIndex();
+        return requests.getRequestByTitle(title).getRequestsIndex();
     }
 
 }
