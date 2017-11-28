@@ -19,7 +19,9 @@ class Book {
     }
 
     User getCurrentUser() throws CurrentUserNotFoundException {
-        if (currentUser != null) return currentUser;
+        if (currentUser != null) {
+            return currentUser;
+        }
         throw new CurrentUserNotFoundException(bookDetails.getTitle());
     }
 
