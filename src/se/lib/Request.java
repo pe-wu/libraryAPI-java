@@ -29,7 +29,7 @@ class Request {
 
     private boolean timeToBuyBook() {
         return everBought && requestsIndex == Library.RENEWAL_REQUESTS ||
-                requestsIndex == Library.NORMAL_REQUESTS;
+                requestsIndex == Library.DEFAULT_REQUESTS;
     }
 }
 
