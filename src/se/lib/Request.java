@@ -15,7 +15,7 @@ class Request {
         return bookDetails;
     }
 
-    int getRequestsIndex() {
+    int getRequestsCounter() {
         return requestsCounter;
     }
 
