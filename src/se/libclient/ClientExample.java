@@ -1,10 +1,10 @@
-package se.lib.client;
+package se.libclient;
 
-import se.lib.Library;
+import se.lib.*;
 
 import java.util.Scanner;
 
-public class Client2 {
+public class ClientExample {
     private static Library lib;
     private static Scanner scanner;
 
@@ -64,7 +64,11 @@ public class Client2 {
         String user = scanner.nextLine();
         System.out.print("Book's title: ");
         String title = scanner.nextLine();
-        lib.bookBorrow(user, title);
+        try {
+            lib.bookBorrow(user, title);
+        } catch (UserNotFoundException | BookNotFoundException | BookAlreadyBorrowedException | TooManyBorrowsException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void cShowBooks() {
@@ -122,6 +126,18 @@ public class Client2 {
         }
 
         System.out.println(howManyBooks + " requests executed!");
+    }
+
+    private static void cGetRequestCurrentIndex() {
+        System.out.print("Book title: ");
+        String title = scanner.nextLine();
+
+        try {
+            System.out.println(lib.getRequestCurrentIndex(title));
+        } catch (RequestNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

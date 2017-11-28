@@ -41,7 +41,7 @@ public class Library {
     }
 
     /**
-     * Provides registration of new users in the API.
+     * provides registration of new users in the API.
      *
      * @param username of a newly registered user.
      */
@@ -50,7 +50,7 @@ public class Library {
     }
 
     /**
-     * Issues new book buy-request by users.
+     * issues new book buy-request by users.
      *
      * @param title  unique title of the requested book.
      * @param author of the requested book.
@@ -64,7 +64,7 @@ public class Library {
     }
 
     /**
-     * Provides borrowing books by users.
+     * provides borrowing books by users.
      *
      * @param username of the borrower.
      * @param title    of the book the borrower would like to borrow.
@@ -80,7 +80,7 @@ public class Library {
     }
 
     /**
-     * Provides returning books by users.
+     * provides returning books by users.
      *
      * @param title of the book being returned.
      * @throws BookNotFoundException if there is no book of a given title in Library.
@@ -93,7 +93,7 @@ public class Library {
     }
 
     /**
-     * Lists all books bought by the library.
+     * lists all books bought by the library.
      *
      * @return contains books available to borrow or currently borrowed by library's users.
      */
@@ -102,7 +102,7 @@ public class Library {
     }
 
     /**
-     * Checks who is a current borrower of a given book.
+     * checks who is a current borrower of a given book.
      *
      * @param title of the book being borrowed.
      * @return name of a user.
@@ -114,7 +114,7 @@ public class Library {
     }
 
     /**
-     * Checks how many times a book was borrowed.
+     * checks how many times a book was borrowed.
      *
      * @param title of the book being checked.
      * @return borrows number.
@@ -125,10 +125,10 @@ public class Library {
     }
 
     /**
-     * Checks how many times a book was borrowed.
+     * checks how many times a book was borrowed.
      *
      * @param title of the requested book being checked.
-     * @return request number.
+     * @return requests number.
      * @throws RequestNotFoundException if there is no request of a given title in Library.
      */
     //TODO maybe we should return 0 when there is no request instead of an exception?

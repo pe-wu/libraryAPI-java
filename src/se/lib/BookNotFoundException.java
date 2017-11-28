@@ -1,17 +1,13 @@
 package se.lib;
 
-class BookNotFoundException extends Exception {
-    private String bookname;
+public class BookNotFoundException extends Exception {
+    private String title;
 
-    BookNotFoundException(String bookname) {
-        this.bookname = bookname;
+    BookNotFoundException(String title) {
+        this.title = title;
     }
 
-    @Override
-    public void printStackTrace() {
-        //it's not a bug, it's a feature!
-        System.err.println("Book " + bookname + "not found!");
-        super.printStackTrace();
+    public String getTitle() {
+        return title;
     }
-
 }
