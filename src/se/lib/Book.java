@@ -25,6 +25,7 @@ class Book {
         throw new CurrentUserNotFoundException(bookDetails.getTitle());
     }
 
+    // benenne in borrowByUser um
     void borrowing(User user) throws BookAlreadyBorrowedException, TooManyBorrowsException {
         if (user.borrowPossible()) {
             if (currentUser == null) {
@@ -38,6 +39,7 @@ class Book {
 
     }
 
+    //bennene in returnBook
     //function named returning instead of return, because return is a keyword
     BookDetails returning() {
         currentUser.removeBorrowedBook();

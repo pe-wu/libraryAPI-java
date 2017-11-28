@@ -19,6 +19,8 @@ class Request {
         return requestsIndex;
     }
 
+    //One function does one thing! Ich würde es in zwei Funktionen teilen
+    //die erste würde ich als increaseDemand umbenennen
     BookDetails nextRequest() {
         requestsIndex++;
         if (timeToBuyBook()) {
