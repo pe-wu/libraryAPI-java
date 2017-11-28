@@ -73,7 +73,8 @@ public class Library {
      * @throws TooManyBorrowsException      if the user has already reached borrows limit.
      * @throws UserNotFoundException        if there is no user of a given name in Library.
      */
-    public void bookBorrow(String username, String title) throws BookAlreadyBorrowedException, BookNotFoundException, TooManyBorrowsException, UserNotFoundException {
+    public void bookBorrow(String username, String title) throws BookAlreadyBorrowedException,
+            BookNotFoundException, TooManyBorrowsException, UserNotFoundException {
         User user = users.getUserByName(username);
         Book book = books.getBookByTitle(title);
         book.borrowing(user);
@@ -97,8 +98,10 @@ public class Library {
      *
      * @return contains books available to borrow or currently borrowed by library's users.
      */
-    public String getBooks() {
-        return books.getBookList();
+    
+    @Override
+    public String toString() {
+        return books.toString();
     }
 
     /**
@@ -109,7 +112,8 @@ public class Library {
      * @throws BookNotFoundException if there is no book of a given title in Library.
      * @throws UserNotFoundException if no user is currently borrowing the book.
      */
-    public String getBookCurrentUser(String title) throws BookNotFoundException, UserNotFoundException {
+    public String getBookCurrentUser(String title) throws BookNotFoundException, 
+            UserNotFoundException {
         return books.getBookByTitle(title).getCurrentUser().getName();
     }
 
