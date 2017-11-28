@@ -123,7 +123,7 @@ public class Library {
      * @return borrows number.
      * @throws BookNotFoundException if there is no book of a given title in Library.
      */
-    public int getBookBorrowsIndex(String title) throws BookNotFoundException {
+    public int getBookBorrowsCounter(String title) throws BookNotFoundException {
         return books.getBookByTitle(title).getBorrowCounter();
     }
 
