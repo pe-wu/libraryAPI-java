@@ -79,7 +79,8 @@ public class ClientExample {
         System.out.println("h - show help");
         System.out.println("e - exit");
         System.out.println("");
-        System.out.println("b - show books");
+        System.out.println("books - show books");
+        System.out.println("borrow - borrow a book");
         System.out.println("r - add bookRequest");
         System.out.println("rr - add bookRequests fast");
         System.out.println("u - add user");
@@ -137,7 +138,6 @@ public class ClientExample {
         } catch (RequestNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
 }
