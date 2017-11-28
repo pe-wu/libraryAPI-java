@@ -39,7 +39,7 @@ class Book {
 
     }
 
-    //bennene in returnByUser
+    //bennene in returnBook
     //function named returning instead of return, because return is a keyword
     BookDetails returning() {
         currentUser.removeBorrowedBook();
