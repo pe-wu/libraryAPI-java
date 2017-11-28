@@ -100,7 +100,7 @@ public class Library {
      */
     
     public String listAllBooks() {
-        return books.toString();
+        return books.booksListString();
     }
 
     /**
