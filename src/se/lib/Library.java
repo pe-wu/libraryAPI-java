@@ -134,8 +134,8 @@ public class Library {
      * @return requests number.
      * @throws RequestNotFoundException if there is no request of a given title in Library.
      */
-    public int getRequestCurrentIndex(String title) throws RequestNotFoundException {
-        return requests.getRequestByTitle(title).getRequestsIndex();
+    public int getRequestCurrentCounter(String title) throws RequestNotFoundException {
+        return requests.getRequestByTitle(title).getRequestsCounter();
     }
 
 }
