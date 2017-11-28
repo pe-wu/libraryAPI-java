@@ -3,7 +3,7 @@ package se.lib;
 class BookDetails {
 	private String isbn;
 	private String author;
-    private String title;
+	private String title;
 
 	BookDetails(String isbn, String author, String title) {
 		this.isbn = isbn;
