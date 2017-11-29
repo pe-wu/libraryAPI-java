@@ -7,7 +7,7 @@ Some text
 ## Installation
 Some text
  
-###Eclipse
+### Eclipse
 If you use Eclipse, set the "Source attachment" for each class jar file to its corresponding "-sources" jar file.
 
 ## Samples
