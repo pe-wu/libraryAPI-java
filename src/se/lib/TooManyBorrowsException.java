@@ -1,7 +1,7 @@
 package se.lib;
 
 /**
- * user has already reached max. number of borrows specified in the system.
+ * User has already reached max. number of borrows specified in the system.
  */
 public class TooManyBorrowsException extends Exception {
 

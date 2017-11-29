@@ -1,7 +1,7 @@
 package se.lib;
 
 /**
- * book of a given title was not found in the database
+ * Book of a given title was not found in the database.
  */
 public class BookNotFoundException extends Exception {
 

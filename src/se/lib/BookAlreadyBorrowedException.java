@@ -1,7 +1,7 @@
 package se.lib;
 
 /**
- * book unable to be borrowed because there is another user already set as borrower
+ * Book unable to be borrowed because there is another user already set as borrower.
  */
 public class BookAlreadyBorrowedException extends Exception {
 

@@ -1,7 +1,7 @@
 package se.lib;
 
 /**
- * user of a given name was not found in the database
+ * User of a given name was not found in the database.
  */
 public class UserNotFoundException extends Exception {
 
