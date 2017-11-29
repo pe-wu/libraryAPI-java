@@ -6,7 +6,7 @@ class Books {
     private ArrayList<Book> bookList = new ArrayList<>();
 
     BookDetails returnBook(Book book) throws BookNotFoundException {
-        BookDetails bookWeared = book.returning();
+        BookDetails bookWeared = book.processReturn();
         if (bookWeared != null) {
             bookList.remove(book);
         }

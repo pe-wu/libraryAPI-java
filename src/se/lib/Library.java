@@ -59,14 +59,14 @@ public class Library {
     public void newRequest(String title, String author, String isbn) {
         BookDetails userRequestDetails = new BookDetails(isbn, author, title);
 
-        BookDetails bookToBuy = requests.addUserRequest(userRequestDetails);
+        BookDetails bookToBuy = requests.addRequest(userRequestDetails, false);
         if (bookToBuy != null) {
             books.buyBook(bookToBuy);
         }
     }
 
     /**
-     * provides borrowing books by users.
+     * provides processBorrow books by users.
      *
      * @param username of the borrower.
      * @param title    of the book the borrower would like to borrow.
@@ -79,11 +79,11 @@ public class Library {
             TooManyBorrowsException, UserNotFoundException {
         User user = users.getUserByName(username);
         Book book = books.getBookByTitle(title);
-        book.borrowing(user);
+        book.processBorrow(user);
     }
 
     /**
-     * provides returning books by users.
+     * provides processReturn books by users.
      *
      * @param title of the book being returned.
      * @throws BookNotFoundException if there is no book of a given title in Library.
@@ -93,7 +93,7 @@ public class Library {
 
         BookDetails libRequestDetails = books.returnBook(book);
         if (libRequestDetails != null) {
-            requests.addLibraryRequest(libRequestDetails);
+            requests.addRequest(libRequestDetails, true);
         }
     }
 
@@ -112,7 +112,7 @@ public class Library {
      * @param title of the book being borrowed.
      * @return name of a user.
      * @throws BookNotFoundException if there is no book of a given title in Library.
-     * @throws UserNotFoundException if no user is currently borrowing the book.
+     * @throws UserNotFoundException if no user is currently processBorrow the book.
      */
     public String getBookCurrentUser(String title) throws BookNotFoundException, UserNotFoundException {
         return books.getBookByTitle(title).getCurrentUser().getName();
@@ -126,7 +126,7 @@ public class Library {
      * @throws BookNotFoundException if there is no book of a given title in Library.
      */
     public int getBookBorrowsIndex(String title) throws BookNotFoundException {
-        return books.getBookByTitle(title).getBorrowsIndex();
+        return books.getBookByTitle(title).getBorrowsCounter();
     }
 
     /**
@@ -137,7 +137,7 @@ public class Library {
      * @throws RequestNotFoundException if there is no request of a given title in Library.
      */
     public int getRequestCurrentIndex(String title) throws RequestNotFoundException {
-        return requests.getRequestByTitle(title).getRequestsIndex();
+        return requests.getRequestByTitle(title).getRequestsCounter();
     }
 
 }
