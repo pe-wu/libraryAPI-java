@@ -25,7 +25,6 @@ class Book {
         throw new UserNotFoundException(bookDetails.getTitle());
     }
 
-    // benenne in borrowByUser um
     void processBorrow(User user) throws BookAlreadyBorrowedException, TooManyBorrowsException {
         if (user.borrowPossible()) {
             if (currentUser == null) {

@@ -75,10 +75,10 @@ public class Library {
      * @throws TooManyBorrowsException      if the user has already reached borrows limit.
      * @throws UserNotFoundException        if there is no user of a given name in Library.
      */
-    public void bookBorrow(String username, String title) throws BookAlreadyBorrowedException, BookNotFoundException,
-            TooManyBorrowsException, UserNotFoundException {
-        User user = users.findUserByName(username);
-        Book book = books.findBookByTitle(title);
+    public void bookBorrow(String username, String title) throws BookAlreadyBorrowedException,
+            BookNotFoundException, TooManyBorrowsException, UserNotFoundException {
+        User user = users.getUserByName(username);
+        Book book = books.getBookByTitle(title);
         book.processBorrow(user);
     }
 
@@ -89,7 +89,7 @@ public class Library {
      * @throws BookNotFoundException if there is no book of a given title in Library.
      */
     public void bookReturn(String title) throws BookNotFoundException {
-        Book book = books.findBookByTitle(title);
+        Book book = books.getBookByTitle(title);
 
         BookDetails libRequestDetails = books.returnBook(book);
         if (libRequestDetails != null) {
@@ -102,6 +102,7 @@ public class Library {
      *
      * @return contains books available to borrow or currently borrowed by library's users.
      */
+
     public String getBooks() {
         return books.toString();
     }
@@ -114,8 +115,9 @@ public class Library {
      * @throws BookNotFoundException if there is no book of a given title in Library.
      * @throws UserNotFoundException if no user is currently processBorrow the book.
      */
-    public String getBookCurrentUser(String title) throws BookNotFoundException, UserNotFoundException {
-        return books.findBookByTitle(title).getCurrentUser().getName();
+    public String getBookCurrentUser(String title) throws BookNotFoundException, 
+            UserNotFoundException {
+        return books.getBookByTitle(title).getCurrentUser().getName();
     }
 
     /**
@@ -125,8 +127,8 @@ public class Library {
      * @return borrows number.
      * @throws BookNotFoundException if there is no book of a given title in Library.
      */
-    public int getBookBorrowsIndex(String title) throws BookNotFoundException {
-        return books.findBookByTitle(title).getBorrowsCounter();
+    public int getBookBorrowsCounter(String title) throws BookNotFoundException {
+        return books.getBookByTitle(title).getBorrowCounter();
     }
 
     /**
@@ -136,8 +138,8 @@ public class Library {
      * @return requests number.
      * @throws RequestNotFoundException if there is no request of a given title in Library.
      */
-    public int getRequestCurrentIndex(String title) throws RequestNotFoundException {
-        return requests.findRequestByTitle(title).getRequestsCounter();
+    public int getRequestCurrentCounter(String title) throws RequestNotFoundException {
+        return requests.getRequestByTitle(title).getRequestsCounter();
     }
 
 }

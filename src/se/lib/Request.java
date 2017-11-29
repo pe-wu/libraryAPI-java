@@ -19,14 +19,11 @@ class Request {
         return requestsCounter;
     }
 
-    //One function does one thing! Ich würde es in zwei Funktionen teilen
-    //die erste würde ich als increaseDemand umbenennen
     BookDetails processRequest() {
         requestsCounter++;
         if (timeToBuyBook()) {
-            return bookDetails.copy(); //clone() not implemented intentionally;
+            return bookDetails.copy(); 
         }
-        return null;
     }
 
     private boolean timeToBuyBook() {
