@@ -11,6 +11,7 @@ class Requests {
         if (requestsFulfilled != null) {
             requestsList.remove(request);
         }
+
         return requestsFulfilled;
     }
 
