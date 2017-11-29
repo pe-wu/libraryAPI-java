@@ -1,9 +1,9 @@
 package se.lib;
 
 class Request {
-    private BookDetails bookDetails;
+    private final BookDetails bookDetails;
+    private final boolean everBought;
     private int requestsCounter;
-    private boolean everBought;
 
     Request(BookDetails bookDetails, boolean everBought) {
         this.bookDetails = bookDetails;
@@ -24,6 +24,7 @@ class Request {
         if (timeToBuyBook()) {
             return bookDetails.copy(); 
         }
+        return null;
     }
 
     private boolean timeToBuyBook() {

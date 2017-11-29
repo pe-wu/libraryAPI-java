@@ -1,9 +1,9 @@
 package se.lib;
 
 class BookDetails {
-    private String isbn;
-    private String author;
-    private String title;
+    private final String isbn;
+    private final String author;
+    private final String title;
 
     BookDetails(String isbn, String author, String title) {
         this.isbn = isbn;

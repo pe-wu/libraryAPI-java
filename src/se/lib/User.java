@@ -1,7 +1,7 @@
 package se.lib;
 
 class User {
-    private String name;
+    private final String name;
     private int borrowedBooksIndex = 0;
 
     User(String name) {

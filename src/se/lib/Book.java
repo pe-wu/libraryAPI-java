@@ -1,7 +1,7 @@
 package se.lib;
 
 class Book {
-    private BookDetails bookDetails;
+    private final BookDetails bookDetails;
     private int borrowsCounter;
     private User currentUser;
 

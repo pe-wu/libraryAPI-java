@@ -3,9 +3,9 @@ package se.lib;
 import java.util.ArrayList;
 
 class Books {
-    private ArrayList<Book> bookList = new ArrayList<>();
+    private final ArrayList<Book> bookList = new ArrayList<>();
 
-    BookDetails returnBook(Book book) throws BookNotFoundException {
+    BookDetails returnBook(Book book) {
         BookDetails bookWeared = book.processReturn();
         if (bookWeared != null) {
             bookList.remove(book);

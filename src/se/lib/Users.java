@@ -3,7 +3,7 @@ package se.lib;
 import java.util.ArrayList;
 
 class Users {
-    private ArrayList<User> usersList = new ArrayList<>();
+    private final ArrayList<User> usersList = new ArrayList<>();
 
     void add(String username) {
         usersList.add(new User(username));

@@ -3,7 +3,7 @@ package se.lib;
 import java.util.ArrayList;
 
 class Requests {
-    private ArrayList<Request> requestsList = new ArrayList<>();
+    private final ArrayList<Request> requestsList = new ArrayList<>();
 
     BookDetails addRequest(BookDetails requestDetails, boolean everBought) {
         Request request = getRequest(requestDetails, everBought);

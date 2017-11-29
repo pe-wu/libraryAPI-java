@@ -30,9 +30,9 @@ public class Library {
      */
     static final int RENEWAL_REQUESTS = 2;
 
-    private Users users = new Users();
-    private Books books = new Books();
-    private Requests requests = new Requests();
+    private final Users users = new Users();
+    private final Books books = new Books();
+    private final Requests requests = new Requests();
 
     /**
      * Default public constructor. Takes no arguments.
@@ -115,7 +115,7 @@ public class Library {
      * @throws BookNotFoundException if there is no book of a given title in Library.
      * @throws UserNotFoundException if no user is currently borrowing the book.
      */
-    public String getBookCurrentUser(String title) throws BookNotFoundException, 
+    public String getBookCurrentUser(String title) throws BookNotFoundException,
             UserNotFoundException {
         return books.findBookByTitle(title).getCurrentUser().getName();
     }

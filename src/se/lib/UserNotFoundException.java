@@ -5,13 +5,16 @@ package se.lib;
  */
 public class UserNotFoundException extends Exception {
 
-	private static final long serialVersionUID = -6025110778049708545L;
-	private String username;
+    private static final long serialVersionUID = -6025110778049708545L;
+    private final String username;
 
     UserNotFoundException(String username) {
         this.username = username;
     }
 
+    /**
+     * @return username from the query.
+     */
     public String getUsername() {
         return username;
     }
