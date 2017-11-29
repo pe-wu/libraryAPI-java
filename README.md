@@ -17,6 +17,10 @@ The download is library.jar file. Once you add this to your classpath, you will 
 ### IDEs
 You can also download corresponding "-sources" file, which is a jar file of the source code suitable for linking to the jar file in IDEs such as Eclipse or IntelliJ IDEA. [link] 
 
+## Implementation
+The Library class can to be instantiated as simple as that:
+> import se.lib.*;
+> Library lib = new Library();
 
 ## Samples
 The following sample may help you get started using the client library:
