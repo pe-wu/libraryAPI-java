@@ -24,7 +24,7 @@ The Library class can to be instantiated and used as simple as that:
 ```java
 import se.lib.*;
 
-class YourClientClass() {
+class YourClientClass {
     
     //some fields...
     
