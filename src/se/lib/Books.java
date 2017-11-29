@@ -11,7 +11,8 @@ class Books {
         return bookWeared;
     }
 
-    String booksListString() {
+    @Override
+    public String toString() {
         StringBuilder booksInLibrary = new StringBuilder("");
             for (Book b : bookList) {
                 booksInLibrary.append(b.getBookDetails().toString());
