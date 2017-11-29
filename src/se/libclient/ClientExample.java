@@ -66,7 +66,8 @@ public class ClientExample {
         String title = scanner.nextLine();
         try {
             lib.bookBorrow(user, title);
-        } catch (UserNotFoundException | BookNotFoundException | BookAlreadyBorrowedException | TooManyBorrowsException e) {
+        } catch (UserNotFoundException | BookNotFoundException | BookAlreadyBorrowedException |
+                TooManyBorrowsException e) {
             e.printStackTrace();
         }
     }
@@ -79,7 +80,8 @@ public class ClientExample {
         System.out.println("h - show help");
         System.out.println("e - exit");
         System.out.println("");
-        System.out.println("b - show books");
+        System.out.println("books - show books");
+        System.out.println("borrow - borrow a book");
         System.out.println("r - add bookRequest");
         System.out.println("rr - add bookRequests fast");
         System.out.println("u - add user");
@@ -122,7 +124,7 @@ public class ClientExample {
         String title = scanner.nextLine();
 
         for (int i = 0; i < howManyBooks; i++) {
-            lib.newRequest(isbn+i, author, title);
+            lib.newRequest(isbn + i, author, title);
         }
 
         System.out.println(howManyBooks + " requests executed!");
@@ -137,7 +139,6 @@ public class ClientExample {
         } catch (RequestNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
 }

@@ -11,7 +11,9 @@ class Users {
 
     User getUserByName(String username) throws UserNotFoundException {
         for (User user : usersList) {
-            if (user.getName().equals(username)) return user;
+            if (user.getName().equals(username)) {
+                return user;
+            }
         }
         throw new UserNotFoundException(username);
     }

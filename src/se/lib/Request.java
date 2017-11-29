@@ -19,19 +19,16 @@ class Request {
         return requestsCounter;
     }
 
-    
-    void increaseCounter() {
-        if(Integer.MAX_VALUE > requestsCounter){
-            requestsCounter++;
+    BookDetails processRequest() {
+        requestsCounter++;
+        if (timeToBuyBook()) {
+            return bookDetails.copy(); 
         }
     }
 
-    BookDetails timeToBuyBook() {
-        if (everBought && requestsCounter == Library.RENEWAL_REQUESTS ||
-                requestsCounter == Library.DEFAULT_REQUESTS) {
-            return bookDetails.copy(); //clone() not implemented intentionally;
-        }
-        return null;
+    private boolean timeToBuyBook() {
+        return everBought && requestsCounter == Library.RENEWAL_REQUESTS ||
+                requestsCounter == Library.DEFAULT_REQUESTS;
     }
 }
 

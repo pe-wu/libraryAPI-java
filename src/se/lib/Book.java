@@ -2,20 +2,20 @@ package se.lib;
 
 class Book {
     private BookDetails bookDetails;
-    private int borrowCounter;
+    private int borrowsCounter;
     private User currentUser;
 
     Book(BookDetails bookDetails) {
         this.bookDetails = bookDetails;
-        this.borrowCounter = 0;
+        this.borrowsCounter = 0;
     }
 
     BookDetails getBookDetails() {
         return bookDetails;
     }
 
-    int getBorrowCounter() {
-        return borrowCounter;
+    int getBorrowsCounter() {
+        return borrowsCounter;
     }
 
     User getCurrentUser() throws UserNotFoundException {
@@ -25,12 +25,11 @@ class Book {
         throw new UserNotFoundException(bookDetails.getTitle());
     }
 
-    // benenne in borrowByUser um
-    void borrowing(User user) throws BookAlreadyBorrowedException, TooManyBorrowsException {
+    void processBorrow(User user) throws BookAlreadyBorrowedException, TooManyBorrowsException {
         if (user.borrowPossible()) {
             if (currentUser == null) {
                 this.currentUser = user;
-                this.borrowCounter++;
+                this.borrowsCounter++;
                 user.addBorrowedBook();
             }
             throw new BookAlreadyBorrowedException(getBookDetails().getTitle());
@@ -39,12 +38,12 @@ class Book {
 
     }
 
-    //bennene in returnBook
-    //function named returning instead of return, because return is a keyword
-    BookDetails returning() {
+    BookDetails processReturn() {
         currentUser.removeBorrowedBook();
         currentUser = null;
-        if (this.borrowCounter < Library.BOOK_WEAR) return null;
-        else return bookDetails.copy();
+        if (borrowsCounter == Library.BOOK_WEAR) {
+            return bookDetails.copy();
+        }
+        return null;
     }
 }
