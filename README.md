@@ -10,11 +10,12 @@ Supported Java environments:
 - Java SE Runtime Environment 7 or higher
 
 ## Installation
-Add the library.jar file to your classpath.
+To use Library API you need to download the latest version. [link] The download will contain the library.jar file. Once you add this to your classpath you will be able to use the API. 
 All the public API methods can be found in API Specification. [link]
  
-### Eclipse
-If you are using Eclipse, you can use corresponding "-sources" jar file.
+### IDEs
+You can also download corresponding "-sources" file, which is a jar file of the source code suitable for linking to the jar file in IDEs such as Eclipse or IntelliJ IDEA. 
+
 
 ## Samples
 The following sample may help you get started using the client library:
