@@ -1,7 +1,9 @@
 package se.lib;
 
 public class UserNotFoundException extends Exception {
-    private String username;
+
+	private static final long serialVersionUID = -6025110778049708545L;
+	private String username;
 
     UserNotFoundException(String username) {
         this.username = username;

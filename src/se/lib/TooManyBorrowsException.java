@@ -1,7 +1,9 @@
 package se.lib;
 
 public class TooManyBorrowsException extends Exception {
-    private String username;
+
+	private static final long serialVersionUID = -3107482928615030489L;
+	private String username;
 
     TooManyBorrowsException(String username) {
         this.username = username;
