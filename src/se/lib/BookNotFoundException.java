@@ -1,5 +1,8 @@
 package se.lib;
 
+/**
+ * book of a given title was not found in the database
+ */
 public class BookNotFoundException extends Exception {
 
 	private static final long serialVersionUID = -7215518272267492347L;
