@@ -60,7 +60,9 @@ public class Library {
         BookDetails userRequestDetails = new BookDetails(isbn, author, title);
 
         BookDetails bookToBuy = requests.addUserRequest(userRequestDetails);
-        if (bookToBuy != null) books.buyBook(bookToBuy);
+        if (bookToBuy != null) {
+            books.buyBook(bookToBuy);
+        }
     }
 
     /**
@@ -73,7 +75,8 @@ public class Library {
      * @throws TooManyBorrowsException      if the user has already reached borrows limit.
      * @throws UserNotFoundException        if there is no user of a given name in Library.
      */
-    public void bookBorrow(String username, String title) throws BookAlreadyBorrowedException, BookNotFoundException, TooManyBorrowsException, UserNotFoundException {
+    public void bookBorrow(String username, String title) throws BookAlreadyBorrowedException, BookNotFoundException,
+            TooManyBorrowsException, UserNotFoundException {
         User user = users.getUserByName(username);
         Book book = books.getBookByTitle(title);
         book.borrowing(user);
@@ -89,7 +92,9 @@ public class Library {
         Book book = books.getBookByTitle(title);
 
         BookDetails libRequestDetails = books.returnBook(book);
-        if (libRequestDetails != null) requests.addLibraryRequest(libRequestDetails);
+        if (libRequestDetails != null) {
+            requests.addLibraryRequest(libRequestDetails);
+        }
     }
 
     /**

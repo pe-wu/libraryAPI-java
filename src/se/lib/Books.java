@@ -7,17 +7,19 @@ class Books {
 
     BookDetails returnBook(Book book) throws BookNotFoundException {
         BookDetails bookWeared = book.returning();
-        if (bookWeared != null) bookList.remove(book);
+        if (bookWeared != null) {
+            bookList.remove(book);
+        }
         return bookWeared;
     }
 
     @Override
     public String toString() {
         StringBuilder booksInLibrary = new StringBuilder("");
-            for (Book b : bookList) {
-                booksInLibrary.append(b.getBookDetails().toString());
-                booksInLibrary.append("\n");
-            }
+        for (Book b : bookList) {
+            booksInLibrary.append(b.getBookDetails().toString());
+            booksInLibrary.append("\n");
+        }
         return booksInLibrary.toString();
     }
 
