@@ -2,13 +2,13 @@
 Eine Bibliothek möchte ihre Abläufe durch den Einsatz eines neuen Software-Systems effizienter gestalten.
 
 ## Prerequisites
-Some text
+Java SE Runtime Environment 8
 
 ## Installation
-Some text
+Add the library.jar file to your classpath in order to use public methods referenced in API Specification. [link]
  
 ### Eclipse
-If you use Eclipse, set the "Source attachment" for each class jar file to its corresponding "-sources" jar file.
+If you are using Eclipse, you can use corresponding "-sources" jar file.
 
 ## Samples
 The following sample may help you get started using the client library:
