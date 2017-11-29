@@ -66,7 +66,8 @@ public class ClientExample {
         String title = scanner.nextLine();
         try {
             lib.bookBorrow(user, title);
-        } catch (UserNotFoundException | BookNotFoundException | BookAlreadyBorrowedException | TooManyBorrowsException e) {
+        } catch (UserNotFoundException | BookNotFoundException | BookAlreadyBorrowedException |
+                TooManyBorrowsException e) {
             e.printStackTrace();
         }
     }
@@ -123,7 +124,7 @@ public class ClientExample {
         String title = scanner.nextLine();
 
         for (int i = 0; i < howManyBooks; i++) {
-            lib.newRequest(isbn+i, author, title);
+            lib.newRequest(isbn + i, author, title);
         }
 
         System.out.println(howManyBooks + " requests executed!");
