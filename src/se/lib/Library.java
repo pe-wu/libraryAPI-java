@@ -77,8 +77,8 @@ public class Library {
      */
     public void bookBorrow(String username, String title) throws BookAlreadyBorrowedException, BookNotFoundException,
             TooManyBorrowsException, UserNotFoundException {
-        User user = users.getUserByName(username);
-        Book book = books.getBookByTitle(title);
+        User user = users.findUserByName(username);
+        Book book = books.findBookByTitle(title);
         book.processBorrow(user);
     }
 
@@ -89,7 +89,7 @@ public class Library {
      * @throws BookNotFoundException if there is no book of a given title in Library.
      */
     public void bookReturn(String title) throws BookNotFoundException {
-        Book book = books.getBookByTitle(title);
+        Book book = books.findBookByTitle(title);
 
         BookDetails libRequestDetails = books.returnBook(book);
         if (libRequestDetails != null) {
@@ -115,7 +115,7 @@ public class Library {
      * @throws UserNotFoundException if no user is currently processBorrow the book.
      */
     public String getBookCurrentUser(String title) throws BookNotFoundException, UserNotFoundException {
-        return books.getBookByTitle(title).getCurrentUser().getName();
+        return books.findBookByTitle(title).getCurrentUser().getName();
     }
 
     /**
@@ -126,7 +126,7 @@ public class Library {
      * @throws BookNotFoundException if there is no book of a given title in Library.
      */
     public int getBookBorrowsIndex(String title) throws BookNotFoundException {
-        return books.getBookByTitle(title).getBorrowsCounter();
+        return books.findBookByTitle(title).getBorrowsCounter();
     }
 
     /**
@@ -137,7 +137,7 @@ public class Library {
      * @throws RequestNotFoundException if there is no request of a given title in Library.
      */
     public int getRequestCurrentIndex(String title) throws RequestNotFoundException {
-        return requests.getRequestByTitle(title).getRequestsCounter();
+        return requests.findRequestByTitle(title).getRequestsCounter();
     }
 
 }

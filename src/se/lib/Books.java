@@ -27,7 +27,7 @@ class Books {
         bookList.add(new Book(bookDetails));
     }
 
-    Book getBookByTitle(String bookname) throws BookNotFoundException {
+    Book findBookByTitle(String bookname) throws BookNotFoundException {
         for (Book book : bookList) {
             if (book.getBookDetails().getTitle().equals(bookname)) {
                 return book;

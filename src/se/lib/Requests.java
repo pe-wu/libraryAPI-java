@@ -16,14 +16,14 @@ class Requests {
 
     private Request getRequest(BookDetails requestDetails, boolean everBought) {
         try {
-            return getRequestByTitle(requestDetails.getTitle());
+            return findRequestByTitle(requestDetails.getTitle());
         } catch (RequestNotFoundException e) {
             requestsList.add(new Request(requestDetails, everBought));
             return requestsList.get(requestsList.size()-1);
         }
     }
 
-    Request getRequestByTitle(String booktitle) throws RequestNotFoundException {
+    Request findRequestByTitle(String booktitle) throws RequestNotFoundException {
         for (Request request : requestsList) {
             if (request.getBookDetails().getTitle().equals(booktitle)) {
                 return request;
