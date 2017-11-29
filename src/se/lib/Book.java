@@ -18,11 +18,11 @@ class Book {
         return borrowCounter;
     }
 
-    User getCurrentUser() throws CurrentUserNotFoundException {
+    User getCurrentUser() throws UserNotFoundException {
         if (currentUser != null) {
             return currentUser;
         }
-        throw new CurrentUserNotFoundException(bookDetails.getTitle());
+        throw new UserNotFoundException(bookDetails.getTitle());
     }
 
     // benenne in borrowByUser um
