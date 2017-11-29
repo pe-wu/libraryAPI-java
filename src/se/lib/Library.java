@@ -66,7 +66,7 @@ public class Library {
     }
 
     /**
-     * provides processBorrow books by users.
+     * provides borrowing books by users.
      *
      * @param username of the borrower.
      * @param title    of the book the borrower would like to borrow.
@@ -83,7 +83,7 @@ public class Library {
     }
 
     /**
-     * provides processReturn books by users.
+     * provides returning books by users.
      *
      * @param title of the book being returned.
      * @throws BookNotFoundException if there is no book of a given title in Library.
@@ -113,7 +113,7 @@ public class Library {
      * @param title of the book being borrowed.
      * @return name of a user.
      * @throws BookNotFoundException if there is no book of a given title in Library.
-     * @throws UserNotFoundException if no user is currently processBorrow the book.
+     * @throws UserNotFoundException if no user is currently borrowing the book.
      */
     public String getBookCurrentUser(String title) throws BookNotFoundException, 
             UserNotFoundException {
@@ -138,7 +138,7 @@ public class Library {
      * @return requests number.
      * @throws RequestNotFoundException if there is no request of a given title in Library.
      */
-    public int getRequestCurrentCounter(String title) throws RequestNotFoundException {
+    public int getBookRequestsCounter(String title) throws RequestNotFoundException {
         return requests.findRequestByTitle(title).getRequestsCounter();
     }
 
