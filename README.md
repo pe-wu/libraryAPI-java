@@ -33,7 +33,28 @@ jar cvf LibraryAPI.jar build/.
 ### IDEs
 Add library.jar as a one of your dependencies in your project. [link] 
 
+## Implementation
+The Library class can be instantiated and used as simple as that:
 
-## Samples
+
+```java
+import se.lib.*;
+
+class YourClientClass {
+    
+    //some fields...
+    
+    Library lib = new Library();
+    
+    //some other methods...
+    
+    void yourLibraryMethod() {
+        lib.addUser("John Doe");
+        lib.newRequest("Clean Code", "Uncle Bob", "0-123456789-10");
+    }
+}
+```
+
+## More Samples
 The following sample may help you get started using the client library:
 >libClient-cmdline-sample
