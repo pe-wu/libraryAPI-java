@@ -17,15 +17,15 @@ The download is library.jar file. Once you add this to your classpath, you will 
 ## Additional option:
 Instructions to compile in WIN OS.
 
--Create a folder to store the source files in:
-mkdir LibraryAPI
-cd LibraryAPI
--Create a folder inside for the compiled source files:
-mkdir build
--Compile all of the source files (.java) in the folder, add -g in order to compile with debug info:
-javac -d (-g) build \*.java 
--Build the .jar file
-jar cvf LibraryAPI.jar build/.
+-Create a folder to store the source files in:  
+mkdir LibraryAPI  
+cd LibraryAPI  
+-Create a folder inside for the compiled source files:  
+mkdir build  
+-Compile all of the source files (.java) in the folder, add -g in order to compile with debug info:  
+javac -d (-g) build \*.java  
+-Build the .jar file  
+jar cvf LibraryAPI.jar build/.  
 
 
  
