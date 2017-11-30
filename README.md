@@ -18,7 +18,7 @@ The download is library.jar file. Once you add this to your classpath, you will 
 You can also download corresponding "-sources" file, which is a jar file of the source code suitable for linking to the jar file in IDEs such as Eclipse or IntelliJ IDEA. [link] 
 
 ## Implementation
-The Library class can to be instantiated and used as simple as that:
+The Library class can be instantiated and used as simple as that:
 
 
 ```java
