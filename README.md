@@ -8,6 +8,7 @@ It helps in everyday tasks, such as
 ## Prerequisites 
 Supported Java environments:
 - Java SE Runtime Environment 7 or higher
+- Java Development Kit 7 or higher (for compiling)
 
 ## Installation
 To use Library API you need to download its latest version. [link] 
