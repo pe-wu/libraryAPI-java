@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"se.lib","l":"BookAlreadyBorrowedException"},{"p":"se.lib","l":"BookNotFoundException"},{"p":"se.lib","l":"Library"},{"p":"se.lib","l":"RequestNotFoundException"},{"p":"se.lib","l":"TooManyBorrowsException"},{"p":"se.lib","l":"UserNotFoundException"}]
